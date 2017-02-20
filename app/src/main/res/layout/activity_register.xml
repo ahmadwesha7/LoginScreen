@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.joserv_1.loginscreen.Register">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                app:srcCompat="@mipmap/ic_launcher"
+                android:id="@+id/imageView2"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="10dp"
+                android:layout_height="100dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editNameFirst"
+                android:background="@drawable/edtshapecolor"
+                android:hint="  First Name"
+                android:layout_above="@+id/editEmail"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="10dp"
+                android:layout_height="50dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/editNameLast"
+                android:background="@drawable/edtshapecolor"
+                android:textSize="18sp"
+                android:hint="  Last Name"
+                android:layout_above="@+id/editEmail"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="10dp"
+                android:layout_height="50dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/editEmail"
+                android:background="@drawable/edtshapecolor"
+                android:hint="  Email"
+                android:layout_above="@+id/edtPass"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="10dp"
+                android:layout_height="50dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/edtPass"
+                android:hint=" PassWord"
+                android:background="@drawable/edtshapecolor"
+                android:layout_above="@+id/editRetypePass"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="10dp"
+                android:layout_height="50dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/editRetypePass"
+                android:background="@drawable/edtshapecolor"
+                android:hint=" reType PassWord"
+                android:layout_above="@+id/editTeamViewer"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="10dp"
+                android:layout_height="50dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:ems="10"
+                android:id="@+id/editTeamViewer"
+                android:inputType="number"
+                android:hint="  Your Team Viewer Id"
+                android:background="@drawable/edtshapecolor"
+                android:layout_above="@+id/editPhone"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="10dp"
+                android:layout_height="50dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/editPhone"
+                android:background="@drawable/edtshapecolor"
+                android:hint="  Phone"
+                android:layout_marginBottom="10dp"
+                android:layout_above="@+id/butSignUp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_height="50dp" />
+
+            <Button
+                android:text="Sign Up"
+                android:layout_height="50dp"
+                android:id="@+id/butSignUp"
+                android:layout_width="match_parent"
+                android:background="@drawable/buttonshapecolor"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/fontSize"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="10dp" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
