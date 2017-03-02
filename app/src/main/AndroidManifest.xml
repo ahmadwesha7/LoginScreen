@@ -18,7 +18,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".Register" />
-        <activity android:name=".RequestActivity" />
+        <activity
+            android:name=".RequestActivity"
+            android:label="@string/title_activity_requst"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

@@ -1,104 +1,132 @@
 package com.example.joserv_1.loginscreen;
 
-import android.support.annotation.Nullable;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
+import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class RequestActivity extends AppCompatActivity {
-    private List<Item_sliding_menu> listSliding;
-    private SlidingMenuAdapter adapter;
-    private ListView listView;
-    private DrawerLayout drawerLayout;
-    private RelativeLayout maincontent;
-    private ActionBarDrawerToggle drawerToggle;
-
+public class RequestActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        listView=(ListView)findViewById(R.id.lv_sliding_menu);
-        drawerLayout=(DrawerLayout)findViewById(R.id.drawer_Layout);
-        maincontent=(RelativeLayout)findViewById(R.id.main_content);
-        listSliding=new ArrayList<>();
 
-        //add item
-        listSliding.add(new Item_sliding_menu(R.mipmap.ic_launcher, "logo"));
-        listSliding.add(new Item_sliding_menu(R.mipmap.ic_launcher, "My Requst"));
-        listSliding.add(new Item_sliding_menu(R.mipmap.ic_launcher, "Prfile"));
-        adapter=new SlidingMenuAdapter(this, listSliding);
-        listView.setAdapter(adapter);
 
-        //Display icons to open/close sliding list
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
 
-        //set title
-        setTitle(listSliding.get(0).getTitle());
-        //item selected
-        listView.setItemChecked(0, true);
-        //close menu
-        drawerLayout.closeDrawer(listView);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
-        //hanlde on item click
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //set title
-                setTitle(listSliding.get(position).getTitle());
-                //item selected
-                listView.setItemChecked(position, true);
-                //close menu
-                drawerLayout.closeDrawer(listView);
-            }
-        });
+        SubmitRequest SubmitRequstFragment=new SubmitRequest();
+        FragmentManager manager=getSupportFragmentManager();
+        manager.beginTransaction().replace(
+                R.id.content_requst,
+                SubmitRequstFragment ,
+                SubmitRequstFragment.getTag()).commit();
+    }
 
-        drawerToggle=new ActionBarDrawerToggle(this, drawerLayout,R.string.drawer_opened,R.string.drawer_closed){
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-                invalidateOptionsMenu();
-            }
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-                invalidateOptionsMenu();
-            }
-        };
-        drawerLayout.addDrawerListener(drawerToggle);
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-       getMenuInflater().inflate(R.menu.main_menu, menu);
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.requst, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
-        if (drawerToggle.onOptionsItemSelected(item)){
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
+    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        drawerToggle.syncState();
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.SubimtRequst) {
+
+            SubmitRequest SubmitRequstFragment=new SubmitRequest();
+            FragmentManager manager=getSupportFragmentManager();
+            manager.beginTransaction().replace(
+                    R.id.content_requst,
+                    SubmitRequstFragment ,
+                    SubmitRequstFragment.getTag()).commit();
+
+
+
+            
+
+
+    }else if (id == R.id.Requst) {
+
+        Request requst=new Request();
+        FragmentManager fragManager=getSupportFragmentManager();
+        fragManager.beginTransaction().replace(
+                R.id.content_requst,
+                requst,
+                requst.getTag()).commit();
+
+
+
+    }
+        else if (id == R.id.nav_Profile) {
+
+            ProfileFragment Profile_Fragment=new ProfileFragment();
+            FragmentManager manager_Pro=getSupportFragmentManager();
+            manager_Pro.beginTransaction().replace(
+                    R.id.content_requst,
+                    Profile_Fragment ,
+                    Profile_Fragment.getTag()).commit();
+
+        } else if (id == R.id.nav_Logout) {
+            Toast.makeText(RequestActivity.this, "Logout", Toast.LENGTH_LONG).show();
+            Intent mainInt=new Intent(RequestActivity.this,LoginActivity.class);
+            mainInt.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(mainInt);
+            finish();
+
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

@@ -84,13 +84,13 @@ public class LoginActivity extends AppCompatActivity {
 
                              }else
                                  if (type1.equals("1")){
-                                     Intent mainInt=new Intent(LoginActivity.this,Register.class);
+                                     Intent mainInt=new Intent(LoginActivity.this,RequestActivity.class);
                                      mainInt.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                      startActivity(mainInt);
 
                              }else
                                  if (type1.equals("0")){
-                                     Intent mainInt=new Intent(LoginActivity.this,Register.class);
+                                     Intent mainInt=new Intent(LoginActivity.this,RequestActivity.class);
                                      mainInt.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                      startActivity(mainInt);
 
