@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.joserv_1.loginscreen.SubmitRequest"
+    android:paddingEnd="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingStart="16dp"
+    android:padding="10dp">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:hint="Description"
+        android:textAlignment="center"
+        android:background="@drawable/edtshapecolor"
+        android:layout_height="150dp"
+        android:id="@+id/edtDesc"
+        android:selectAllOnFocus="false"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/edtLocation"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:hint="Location"
+        android:textAlignment="center"
+        android:background="@drawable/edtshapecolor"
+        android:layout_height="50dp"
+        android:id="@+id/edtLocation"
+        android:selectAllOnFocus="false"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/edtTitle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        app:srcCompat="@mipmap/ic_videocam"
+        android:id="@+id/imgVideo"
+        android:layout_alignTop="@+id/imgMic"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/white" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        app:srcCompat="@mipmap/ic_camera"
+        android:id="@+id/imgCamera"
+        android:layout_alignTop="@+id/imgMic"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/white" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:hint="Title"
+        android:textAlignment="center"
+        android:background="@drawable/edtshapecolor"
+        android:layout_height="50dp"
+        android:id="@+id/edtTitle"
+        android:selectAllOnFocus="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:srcCompat="@mipmap/ic_done_white_24dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginEnd="11dp"
+        android:layout_below="@+id/imgVideo"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        app:srcCompat="@mipmap/ic_mic"
+        android:layout_marginTop="19dp"
+        android:id="@+id/imgMic"
+        android:background="@android:color/white"
+        android:layout_below="@+id/edtDesc"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>
