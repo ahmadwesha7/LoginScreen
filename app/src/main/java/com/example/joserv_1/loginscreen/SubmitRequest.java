@@ -36,14 +36,8 @@ import java.io.ByteArrayOutputStream;
  */
 public class SubmitRequest extends Fragment {
 
-
-
-
-    public SubmitRequest() {
-        // Required empty public constructor
-    }
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1888;
-     private EditText edTitle, edLocation,edDesc;
+    private EditText edTitle, edLocation,edDesc;
     private ImageButton Viewmic,Viewcamera,Viewvideocam;
     private FloatingActionButton ActionGo;
     private final int GALLERY_REQUEST=1;
@@ -52,6 +46,12 @@ public class SubmitRequest extends Fragment {
     private ProgressDialog dialog;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
+
+
+    public SubmitRequest() {
+        // Required empty public constructor
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
