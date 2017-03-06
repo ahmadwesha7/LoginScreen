@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -79,12 +80,15 @@ public class SubmitRequest extends Fragment {
                 final String Title=edTitle.getText().toString().trim();
                 final String Location=edLocation.getText().toString().trim();
                 final String Desc=edDesc.getText().toString().trim();
+                Toast.makeText(getContext(),"1",Toast.LENGTH_SHORT).show();
 
-                if (!TextUtils.isEmpty(Title) && !TextUtils.isEmpty(Location) && !TextUtils.isEmpty(Desc) && imageUri !=null){
-                    StorageReference reference= storageReference.child("Request Image").child(imageUri.getLastPathSegment());
-                    reference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                if (!TextUtils.isEmpty(Title) && !TextUtils.isEmpty(Location) && !TextUtils.isEmpty(Desc) ){
+                  //  StorageReference reference= storageReference.child("Request Image").child(imageUri.getLastPathSegment());
+                   // reference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                     //   @Override
+                   //     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Toast.makeText(getContext(),"2",Toast.LENGTH_SHORT).show();
 
                             mAuth=FirebaseAuth.getInstance();
                             mDatabase= FirebaseDatabase.getInstance().getReference().child("Reqest");
@@ -93,16 +97,19 @@ public class SubmitRequest extends Fragment {
                             String user_id=mAuth.getCurrentUser().getUid();
                             final DatabaseReference Current_User_db= mDatabase.child(user_id);
 
+
+
                             Current_User_db.child("title").setValue(Title);
                             Current_User_db.child("location").setValue(Location);
                             Current_User_db.child("desc").setValue(Desc);
-                            Current_User_db.child("Image Request").setValue(imageUri.toString());
+
+  //                          Current_User_db.child("Image Request").setValue(imageUri.toString());
 
 
 
 
-                        }
-                    });
+                       // }
+                   // });
 
                 }
 
