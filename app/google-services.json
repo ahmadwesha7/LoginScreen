@@ -15,11 +15,19 @@
       },
       "oauth_client": [
         {
+          "client_id": "707864720977-m6qfblospn5iqf22uh8ecqhi05f1i6jr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.joserv_1.loginscreen",
+            "certificate_hash": "087d72fcba59f8539ce6e5a7a29a2f684e898f1f"
+          }
+        },
+        {
           "client_id": "707864720977-0jeg7aciqt6blnn08j11pst3uii2hkln.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.joserv_1.loginscreen",
-            "certificate_hash": "10AF9FE7BDB7AF4EA3F8A8CAEB7A7CA50A6E30F8"
+            "certificate_hash": "10af9fe7bdb7af4ea3f8a8caeb7a7ca50a6e30f8"
           }
         },
         {

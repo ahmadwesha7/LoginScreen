@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
 
                              }else
                                  if (type1.equals("1")){
-                                     Intent mainInt=new Intent(LoginActivity.this,RequestActivity.class);
+                                     Intent mainInt=new Intent(LoginActivity.this,PoolFragment.class);
                                      mainInt.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                      startActivity(mainInt);
 

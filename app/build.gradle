@@ -39,8 +39,11 @@ dependencies {
     compile 'com.google.firebase:firebase-crash:10.2.0'
     compile 'com.firebaseui:firebase-ui-database:1.0.1'
     compile 'com.google.android.gms:play-services-auth:10.2.0'
+    compile 'com.android.support:recyclerview-v7:25.2.0'
     testCompile 'junit:junit:4.12'
 }
+
+
 
 
 

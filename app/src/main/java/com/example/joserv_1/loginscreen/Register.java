@@ -26,7 +26,7 @@ public class Register extends AppCompatActivity {
     private Button butSign_Up;
     private FirebaseAuth  mAuth;
     private ProgressDialog progress;
-    private DatabaseReference mDatabase;
+    private DatabaseReference mDatabase1;
 
 
     @Override
@@ -83,7 +83,7 @@ public class Register extends AppCompatActivity {
             else {
 
                 mAuth=FirebaseAuth.getInstance();
-            mDatabase= FirebaseDatabase.getInstance().getReference().child("Users");
+            mDatabase1= FirebaseDatabase.getInstance().getReference().child("Users");
             progress.show();
 
             mAuth.createUserWithEmailAndPassword(Email,PassWord).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -95,12 +95,12 @@ public class Register extends AppCompatActivity {
                     }else {
                         Toast.makeText(Register.this, "Registering completed successfully", Toast.LENGTH_LONG).show();
                         String user_id=mAuth.getCurrentUser().getUid();
-                       final DatabaseReference Current_User_db= mDatabase.child(user_id);
+                       final DatabaseReference Current_User_db= mDatabase1.child(user_id);
 
                         Current_User_db.child("First_Name").setValue(Fname);
                         Current_User_db.child("Last_Name").setValue(Lname);
                         Current_User_db.child("Eamil").setValue(Email);
-                        Current_User_db.child("Team Viewer Id").setValue(Team_Viewer_Id);
+                        Current_User_db.child("Team_Viewer_Id").setValue(Team_Viewer_Id);
                         Current_User_db.child("phone").setValue(Phone);
                         Current_User_db.child("Type").setValue("2");
 
@@ -116,12 +116,12 @@ public class Register extends AppCompatActivity {
 
                                 }else
                                     if (type1.equals("1")){
-                                        Intent mainInt=new Intent(Register.this,LoginActivity.class);
+                                        Intent mainInt=new Intent(Register.this,PoolFragment.class);
                                         mainInt.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                         startActivity(mainInt);
                                     }else
                                     if (type1.equals("0")){
-                                        Intent mainInt=new Intent(Register.this,LoginActivity.class);
+                                        Intent mainInt=new Intent(Register.this,RequestActivity.class);
                                         mainInt.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                         startActivity(mainInt);
                                     }
